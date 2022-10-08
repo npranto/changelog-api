@@ -49,14 +49,6 @@ app.post(
   handleRequestBodyErrors,
   createNewUser
 );
-app.get("/error", async (req, res) => {
-  const secret = await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("secret");
-    }, 2000);
-  });
-  return res.status(200).json({ secret });
-});
 
 // API routes
 app.use("/api", validateUser, router);

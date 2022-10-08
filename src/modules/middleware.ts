@@ -21,7 +21,7 @@ export const validateUser = (req, res, next) => {
   }
 
   try {
-    const user = jwt.verify(token, config.secret.jwt);
+    const user = jwt.verify(token, process.env.JWT_SECRET);
     req.user = user;
     next();
   } catch (e) {
